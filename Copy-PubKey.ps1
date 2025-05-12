@@ -32,6 +32,8 @@ chmod 600 "`$auth_keys"
 grep -qF "`$key" "`$auth_keys" || echo "`$key" >> "`$auth_keys"
 "@
 
+    $Command = $Command -replace "`r", ""
+
     & ssh $RemoteHost bash -c "'$Command'"
 
 }
